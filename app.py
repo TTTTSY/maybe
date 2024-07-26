@@ -25,8 +25,6 @@ class Queue:
             new_node.next = self.head
             self.head = new_node
 queue = Queue()
-c = request.form.get("x")
-d = request.form.get("y")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -41,6 +39,8 @@ def register():
 
 @app.route("/main", methods=["GET", "POST"])
 def main():
+    c = request.form.get("x")
+    d = request.form.get("y")
     queue.enqueue(c, d)
     queue.enqueue("TaoSiyu", "Systemcall0122")
     queue.enqueue("wangjy", "123456")
