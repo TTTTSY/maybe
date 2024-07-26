@@ -39,13 +39,11 @@ def register():
 
 @app.route("/main", methods=["GET", "POST"])
 def main():
-    c = request.form.get("x")
-    d = request.form.get("y")
-    queue.enqueue(c, d)
     queue.enqueue("TaoSiyu", "Systemcall0122")
     queue.enqueue("wangjy", "123456")
     queue.enqueue("zhiqiangma", "12345678")
     queue.enqueue("wangyuheng", "1234567")
+    queue.enqueue("root", "root")
 
     r = request.form.get("q")
     v = request.form.get("t")
