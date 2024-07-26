@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import google.generativeai as palm
 
 # Configure API key from environment variable
-palm.configure(api_key="YOUR_API_KEY")  # Replace YOUR_API_KEY with your actual API key
+palm.configure(api_key="AIzaSyCga2U1iWz65_J-q3UilS38wmrN8CdaEr4")  # Replace YOUR_API_KEY with your actual API key
 model = {"model": "models/chat-bison-001"}
 
 app = Flask(__name__)
@@ -25,6 +25,8 @@ class Queue:
             new_node.next = self.head
             self.head = new_node
 queue = Queue()
+c = request.form.get("x")
+d = request.form.get("y")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -39,6 +41,7 @@ def register():
 
 @app.route("/main", methods=["GET", "POST"])
 def main():
+    queue.enqueue(c, d)
     queue.enqueue("TaoSiyu", "Systemcall0122")
     queue.enqueue("wangjy", "123456")
     queue.enqueue("zhiqiangma", "12345678")
